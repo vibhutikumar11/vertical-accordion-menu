@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Verical accordion menu</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" />
+<link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+
+<div id="accordian">
+	<ul>
+		<!-- I will keep this LI open by default -->
+		<li class="active">
+			<h3 class="open"><span class="fa fa-dashboard"></span>Dashboard</h3>
+			<ul>
+				<li><a href="#">Reports</a></li>
+				<li><a href="#">Search</a></li>
+				<li><a href="#">Graphs</a></li>
+				<li><a href="#">Settings</a></li>
+			</ul>
+		</li>
+		<li>
+			<h3><span class="fa fa-tasks"></span>Tasks</h3>
+			<ul>
+				<li><a href="#">Today's tasks</a></li>
+				<li><a href="#">Urgent</a></li>
+				<li><a href="#">Overdues</a></li>
+				<li><a href="#">Recurring</a></li>
+				<li><a href="#">Settings</a></li>
+			</ul>
+		</li>
+		<li>
+			<h3><span class="fa fa-calendar"></span>Calendar</h3>
+			<ul>
+				<li><a href="#">Current Month</a></li>
+				<li><a href="#">Current Week</a></li>
+				<li><a href="#">Previous Month</a></li>
+				<li><a href="#">Previous Week</a></li>
+				<li><a href="#">Next Month</a></li>
+				<li><a href="#">Next Week</a></li>
+				<li><a href="#">Team Calendar</a></li>
+				<li><a href="#">Private Calendar</a></li>
+				<li><a href="#">Settings</a></li>
+			</ul>
+		</li>
+		<li>
+			<h3><span class="fa fa-heart-o"></span>Favourites</h3>
+			<ul>
+				<li><a href="#">Global favs</a></li>
+				<li><a href="#">My favs</a></li>
+				<li><a href="#">Team favs</a></li>
+				<li><a href="#">Settings</a></li>
+			</ul>
+		</li>
+	</ul>
+</div>
+
+<!-- jquery dependency -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+<script type="text/JavaScript">
+/* Custom jquery script for vertical menu accordian */
+$(document).ready(function(){
+	$("#accordian h3").click(function(){
+		//slide up all the link lists
+		$("#accordian ul ul").slideUp();
+		$('#accordian h3').removeClass("open");
+	
+		
+		//slide down the link list below the h3 clicked - only if its closed
+		if(!$(this).next().is(":visible"))
+		{
+			$(this).next().slideDown();
+			$(this).toggleClass("open");
+		}
+	});
+});
+</script>
+
+
+
+</body>
+
+</html>
